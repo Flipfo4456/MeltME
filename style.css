@@ -51,7 +51,11 @@ hr{
 
 }
 
-
+.timer-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
 
 .timer{
     font-size: 10em;
@@ -81,6 +85,28 @@ button:hover{
     transform: translateY(-10px);
 
 }
+
+svg {
+    transform: rotate(270deg);
+}
+
+.circle-background {
+    fill: none;
+    stroke: #444;
+    stroke-width: 8;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #ffb36b;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 282.74;
+    stroke-dashoffset: 282.74;
+    transition: stroke-dashoffset 0.5s linear;
+}
+
+
 #start{
     background-color: rgb(139, 209, 35);
 }

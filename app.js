@@ -2,13 +2,17 @@
 const start = document.getElementById("start");
 const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
+const progressCircle = document.getElementById("progressCircle");
 
 const timer = document.getElementById("timer");
 
 //let timeLeft = 1500; //25 min = 1500 secs
 //let timeLeft = 10; //Test
 let timeLeft = 0; //Forward Test
+let totalTime = 10;
 let bufferNowTime;
+const circumference = 2 * Math.PI * 45;
+
 
 const updateTimer = () =>{
     const minutes = Math.floor(timeLeft/60);// 25 min exactly, OntheLeft
@@ -16,36 +20,35 @@ const updateTimer = () =>{
 
     timer.innerHTML = `${minutes.toString().padStart(2,"0")}:${secs.toString().padStart(2,"0")}`;//ชื่อตัวแปรint.toString(แปลง).padStart(จำนวนสตริง,"เติมอะไรถ้าไม่มี(0ใส่ข้างหน้า)")
 
+    // Update circle progress
+    const progress = (timeLeft / totalTime) * circumference;
+    progressCircle.style.strokeDashoffset = circumference + progress;
 };
 
 
 /*                    Forward                                             */ 
-const startTimer = () =>{
-    start.disabled = true; // To Prevent spamming
-
+const startTimer = () => {
+    start.disabled = true;
     bufferNowTime = setInterval(() => {
-
         timeLeft++;
         updateTimer();
-    
         
-        /*if(timeLeft > 10 ){
+        
+        /*if (timeLeft > totalTime) {
             clearInterval(bufferNowTime);
             alert("Time's up!");
-
-
-           
-            timeLeft = 0; //Forward Test
+            timeLeft = 0;
             updateTimer();
             start.disabled = false;
-        }*/
-        
-        
-        
-    }, 1000);//-1000ms = 1secs
-    
-};
+            }*/
+           
+           
+        }, 1000);
+    };
 
+
+
+    
 const stopTimer = () => {
     clearInterval(bufferNowTime);
 
