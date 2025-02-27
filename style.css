@@ -1,23 +1,19 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Fredoka One', cursive;
+    font-family: 'Fredoka One', cursive;
 }
 
-body{
+body {
     min-height: 100vh;
-    background: linear-gradient(
-        -135deg,
-        rgb(39, 28, 243), #ec2f12);
+    background: linear-gradient(-135deg, rgb(39, 28, 243), #ec2f12);
     display: flex;
-    align-items: center;/*move from the corner to the left center */
-
-    justify-content: center;/*Move left to screen CENTER*/
-    
+    align-items: center;
+    justify-content: center;/*real center*/
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,28 +23,28 @@ body{
     background: rgba(255, 255, 255, 0.3);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    
     border-radius: 2em;
     padding: 4em 3em;
+    position: relative;
 }
 
-.title{
+.title {
     font-size: 3em;
 }
 
-.describe1{
+.describe1 {
     font-size: 30px;
     font-weight: 20;
     color: black;
 }
-hr{
+
+hr {
     width: 100%;
     background-color: white;
     height: 5px;
     border-radius: 1em;
     border: none;
-    margin-top: -10px; /* Adjust spacing */
-
+    margin-top: -10px;
 }
 
 .timer-wrapper {
@@ -57,33 +53,13 @@ hr{
     height: 200px;
 }
 
-.timer{
-    font-size: 10em;
-    font-weight: 90;
-
-}
-.button-wrapper{
-    display: flex;
-    gap: 1em;
-
-}
-
-button{
-    font-size: 2em;
-    font-weight: 80;
-    letter-spacing: 1px;
-    padding: 0.5em 1.5em;
-    border-radius: 0.5em;
-    border: none;
-    color:#FFF;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-
-}
-
-button:hover{
-    transform: translateY(-10px);
-
+.timer {
+    font-size: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
 
 svg {
@@ -106,14 +82,25 @@ svg {
     transition: stroke-dashoffset 0.5s linear;
 }
 
-
-#start{
-    background-color: rgb(139, 209, 35);
-}
-#stop{
-    background-color: rgb(246, 25, 25);
-}
-#reset{
-    background-color: rgb(24, 137,242);
+.button-wrapper {
+    display: flex;
+    gap: 1em;
 }
 
+button {
+    font-size: 1.5em;
+    padding: 0.5em 1.5em;
+    border-radius: 0.5em;
+    border: none;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+#start { background-color: rgb(139, 209, 35); }
+#stop { background-color: rgb(246, 25, 25); }
+#reset { background-color: rgb(24, 137, 242); }
