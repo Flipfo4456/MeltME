@@ -12,7 +12,7 @@ body {
     align-items: center;
     justify-content: center;/*real center*/
 }
-
+ 
 .container {
     display: flex;
     flex-direction: column;
