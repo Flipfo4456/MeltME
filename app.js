@@ -9,7 +9,7 @@ const timer = document.getElementById("timer");
 //let timeLeft = 1500; //25 min = 1500 secs
 //let timeLeft = 10; //Test
 let timeLeft = 0; //Forward Test
-let totalTime = 10;
+let totalTime = 1500;
 let bufferNowTime;
 const circumference = 2 * Math.PI * 45;
 
@@ -53,8 +53,8 @@ const stopTimer = () => {
     clearInterval(bufferNowTime);
 
 
-    if (timeLeft > 10) {
-        timeLeft = 5; // Set count down 
+    if (timeLeft > 1500) {
+        timeLeft = 300; // Set count down 
         updateTimer();
         
         // immediately
