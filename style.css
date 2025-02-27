@@ -7,7 +7,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(-135deg, rgb(39, 28, 243), #ec2f12);
+    background: linear-gradient(-135deg, rgb(95, 76, 186), #8daf59);
     display: flex;
     align-items: center;
     justify-content: center;/*real center*/
@@ -30,6 +30,7 @@ body {
 
 .title {
     font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* colorขอบ */
 }
 
 .describe1 {
@@ -59,28 +60,14 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
-svg {
-    transform: rotate(270deg);
-}
 
-.circle-background {
-    fill: none;
-    stroke: #444;
-    stroke-width: 8;
-}
 
-.circle-progress {
-    fill: none;
-    stroke: #ffb36b;
-    stroke-width: 8;
-    stroke-linecap: round;
-    stroke-dasharray: 282.74;
-    stroke-dashoffset: 282.74;
-    transition: stroke-dashoffset 0.5s linear;
-}
+
+
+
 
 .button-wrapper {
     display: flex;
@@ -99,6 +86,27 @@ button {
 
 button:hover {
     transform: translateY(-5px);
+}
+
+svg {
+    transform: rotate(270deg);
+}
+
+.circle-background {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 8;
+    filter: url(#soft-glow);
+}
+
+.circle-progress {
+    fill: none;
+    stroke: #38d3b9;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 282.74;
+    stroke-dashoffset: 282.74;
+    transition: stroke-dashoffset 0.5s linear;
 }
 
 #start { background-color: rgb(139, 209, 35); }

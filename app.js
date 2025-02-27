@@ -48,7 +48,7 @@ const startTimer = () => {
 
 
 
-    
+
 const stopTimer = () => {
     clearInterval(bufferNowTime);
 
@@ -61,8 +61,11 @@ const stopTimer = () => {
         let countdownInterval = setInterval(() => {
             timeLeft--; 
             updateTimer();
-
-            if (timeLeft <= 0) {
+            
+            if (timeLeft < 0) {
+                timeLeft = 0;
+                updateTimer();
+                alert("Time's up!");
                 clearInterval(countdownInterval); // Stop the countdown when time reaches 0
                 start.disabled = false; // can press start
             }
