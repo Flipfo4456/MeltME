@@ -1,5 +1,5 @@
 //66010338 was the creator
-// Get the audio element and the button
+
 const audio = document.getElementById('background-music');
 const button = document.getElementById('toggle-button');
 const volumeSlider = document.getElementById('volume-slider');
