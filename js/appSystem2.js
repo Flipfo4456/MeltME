@@ -73,6 +73,9 @@ if(start.disabled = true && timeLeft == 0){
 const startTimer = () =>{
     
     start.disabled = true; // Disable start button to prevent spamming
+    start.style.backgroundColor = "rgb(74, 116, 11)";
+    stop.style.backgroundColor = "rgb(246, 25, 25)";
+    
 
     bufferNowTime = setInterval(() => {
 
@@ -91,18 +94,26 @@ const startTimer = () =>{
             createSmoke(); 
             timeLeft=0;
             updateTimer();
-
+            
+            //extraTime = 5;
             const extraCountdown = setInterval(() => {
-                stop.disabled = true;
-                reset.disabled = true;
+                if(timeLeft==0){
+                    stop.disabled = true;
+                    stop.style.backgroundColor = "rgb(85, 85, 85)";
+                    start.disabled = true;
+                    start.style.backgroundColor = "rgb(85, 85, 85)";
+                }
+                
                 if (extraTime > 0 && timeLeft==0) {
                     extraTime--;
                     updateExtra(); // Update the timer display
                 } else {
+                    reset.disabled = false;
                     clearInterval(extraCountdown);
                     alert("Extra time over!"); // You can modify this action
-                    stop.disabled = false;
-                    reset.disabled = false;
+                    // start.disabled = false;
+                    // stop.disabled = false;
+
                     // start.disabled = false; // Re-enable start button after extra time
                 }
             }, 1000);
@@ -116,66 +127,60 @@ const startTimer = () =>{
     smokeInterval = setInterval(createSmokeParticles, 1500); // Generate smoke while flame is burning
     fireInterval = setInterval(createFireParticles, 500); // Generate fire particles
 };
-                
-        
-        
-    const stopTimer = () => {
-        clearInterval(bufferNowTime);
-                    
-        /*            
-        if (timeLeft > 1500) {
-            timeLeft = 300; // Set count down 
-            updateTimer();
-                        
-            // immediately
-            let countdownInterval = setInterval(() => {
-                timeLeft--; 
-                updateTimer();
-                            
-                if (timeLeft <= 0) {
-                    timeLeft = 0; // Set count down 
-                    alert("Time's up!");
-                    totalTime = 1500; 
-                    clearInterval(countdownInterval); // Stop the countdown when time reaches 0
-                    start.disabled = false; // can press start
-                }
-            }, 1000); // Countdown every 1 sec
-        } else {*/
-        //  Time under or  =  expected val
-        updateTimer();
-        start.disabled = false; // can press start
-        // }
-            
-            
-        start.disabled = false; // can press start
-    };
+
+
+
+const stopTimer = () => {
+    clearInterval(bufferNowTime);
+    clearInterval(fireInterval); // Stop fire particles
+    clearInterval(smokeInterval); // Stop smoke particles when the flame is out
+    
+    //  Time under or  =  expected val
+    updateTimer();
+    start.disabled = false; // can press start
+    start.style.backgroundColor = "rgb(146, 232, 16)";
+    stop.style.backgroundColor = "rgb(109, 12, 12)";
+    
+    
+    
+    
+};
 
 
 
 
-    const resetTimer = () => {
-        clearInterval(bufferNowTime);
-        clearInterval(fireInterval);
-        clearInterval(smokeInterval);
-
-        timeLeft = totalTime; // รีเซ็ตเวลา
-        updateTimer();
-        
-        document.getElementById("candle").style.height = "100px"; // รีเซ็ตความสูงเทียน
-        document.getElementById("flame").style.display = "block"; // แสดงเปลวไฟใหม่
-
+const resetTimer = () => {
+    if(timeLeft==10){
         start.disabled = false;
+        stop.disabled = false;
+        start.style.backgroundColor = "rgb(139, 209, 35)";
+        stop.style.backgroundColor = "rgb(246, 25, 25)";
+        clearInterval(bufferNowTime);
+        clearInterval(fireInterval); // Stop fire particles
+        clearInterval(smokeInterval); // Stop smoke particles when the flame is out
+    }
+    start.disabled = false;
+    stop.disabled = false;
+    start.style.backgroundColor = "rgb(139, 209, 35)";
+    stop.style.backgroundColor = "rgb(246, 25, 25)";
+    clearInterval(bufferNowTime);
+    clearInterval(fireInterval); // Stop fire particles
+    clearInterval(smokeInterval); // Stop smoke particles when the flame is out
+    
+    //extraTime = 0; //secs
+    timeLeft = 10; // รีเซ็ตเวลา
+    updateTimer();
+    
+    document.getElementById("candle").style.height = "100px"; // รีเซ็ตความสูงเทียน
+    document.getElementById("flame").style.display = "block"; // แสดงเปลวไฟใหม่
+
+       
     };
 
 
 
 
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            stopTimer();
-        }
-    });
-
+    
 
     function createFireParticles() {
         if (timeLeft <= 0) return; // Stop fire particles when time is up
@@ -232,15 +237,27 @@ const startTimer = () =>{
     updateTimer(); // Initialize the timer display
 
 
+document.addEventListener("visibilitychange", () => {
+        if (document.hidden && timeLeft!=0 && timeLeft != totalTime) {
+            stopTimer();
+            alert("Dont left the candle on fire! Too dangerous!");
+
+        }
+    });
 
     start.addEventListener("click", ()=>{
-        if(start.disabled = true && timeLeft == 0){
-        alert("Pls, Click reset");
+        if(timeLeft == 0){
+            start.style.backgroundColor = "rgb(85, 85, 85)";
+            alert("Pls, Click reset");
     }else{startTimer();}
     });
 
 
-    stop.addEventListener("click", stopTimer);
+    stop.addEventListener("click", ()=>{
+        if(stop.disabled = true && timeLeft == 0){
+            stop.style.backgroundColor = "rgb(85, 85, 85)";
+    }else{stopTimer();}
+    });
     reset.addEventListener("click", resetTimer);
 
     /*rest.addEventListener("click", () => {
