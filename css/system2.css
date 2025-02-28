@@ -150,7 +150,21 @@ button:hover {
     color: black;
 }
 
+@media (max-width: 400px) {
+    .timer-wrapper {
+        max-width: 120px;
+    }
+    .timer {
+        font-size: 1.5em;
+    }
+}
 @media (max-width: 600px) {
+
+    .Audio-btn {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+    }
     .contain {
         padding: 2em;
         max-width: 100%;
