@@ -151,7 +151,7 @@ button:hover {
 }
 
 @media (max-width: 600px) {
-    .container {
+    .contain {
         padding: 2em;
         max-width: 100%;
     }
