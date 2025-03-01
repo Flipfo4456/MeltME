@@ -15,6 +15,7 @@ body {
 }
 
 .contain {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,32 +35,21 @@ body {
 
     /* max-height: 80vh; Prevent it from taking too much vertical space */
     min-height: 576px;
-
-
+    /* max-height: 576px; */
     /* Inside auto layout */
-    flex: none;
+    /* flex: none;
     order: 0;
     flex-grow: 0;
-    z-index: 0;
+    z-index: 0; */
 }
 
 /* width: 600px; */
 /* height: 576px; */
-/* Overlay+Shadow+OverlayBlur */
-
-/* Auto layout */
-
-
 /* width: 600px;
 min-width: 600px;
 max-width: 1152px;
 height: 576px;
 min-height: 576px; */
-
-
-
-/* Note: backdrop-filter has minimal browser support */
-
 
 
 
@@ -142,11 +132,10 @@ button:hover {
     cursor: pointer;
     border-radius: 100px;
     font-size: 16px;
-    position: fixed;
     z-index: 999; /* Ensure they appear above other elements */
 
 
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -407,7 +396,7 @@ button:hover {
             /* Button */
 
             /* Auto layout */
-            display: flex;
+            /* display: flex; */
             flex-direction: row;
             justify-content: center;
             align-items: center;
@@ -429,23 +418,9 @@ button:hover {
 }
 
 .nav_container {
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 10px;
-    z-index: 1000; /* Ensure it stays on top */
+    /* Ensure it stays on top */
+    z-index: 1000; 
 }
-
-
-
-
-
-/* Frame 1 */
-
-/* Auto layout */
-
-
-/* Overlay+Shadow+OverlayBlur */
-
-/* Auto layout */
-
-
