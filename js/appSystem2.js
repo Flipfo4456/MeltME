@@ -145,7 +145,7 @@ function updateButtons() {
                           start.style.backgroundColor = "rgb(85, 85, 85)";
                       }
                       
-                      if (extraTime > 0 && timeLeft==0) {
+                      if (extraTime > 0 ) {
                           extraTime--;
                           updateExtra(); // Update the timer display
                           updateButtons();
