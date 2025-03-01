@@ -31,12 +31,16 @@
     
     </div>
        <!-- Audio Button -->
-       <button class="Audio-btn" onclick="toggleAudio()">🔊</button>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+       <button class="Audio-btn" onclick="toggleAudio()">
+           <i class="fas fa-volume-up"></i> 
+           Audio
+       </button>
     
        <!-- Audio Panel -->
        <div class="Audio-panel" id="AudioPanel">
            <button id="toggle-button" class="toggle-btn">Turn Music Off</button>
-           <label for="volume-slider">Volume:</label>
+           <label for="volume-slider">Volume</label>
            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
        </div>
     
@@ -48,21 +52,7 @@
        
     
     
-       <!-- Navbar -->
-    <!-- <nav class="navbar">
-        <a href="#" class="nav-item active" id="navHome">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-        </a>
-        <a href="#" class="nav-item" id="navAnalytics">
-            <i class="fas fa-chart-bar"></i>
-            <span>Analytics</span>
-        </a>
-        <a href="#" class="nav-item" id="navSettings">
-            <i class="fas fa-cog"></i>
-            <span>Settings</span>
-        </a>
-    </nav> -->
+
     
         <div class="contain"> 
         <h1 class="title">Melt ME! The Candle!</h1> 
