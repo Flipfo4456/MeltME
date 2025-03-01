@@ -28,11 +28,14 @@ body {
     padding: 90px 72px;
     position: relative;
 
-    max-width: 90vw;
+    /* max-width: 90vw; */
     min-width: 300px;
+    /* max-width: 300px; */
 
-    max-height: 80vh; /* Prevent it from taking too much vertical space */
+    /* max-height: 80vh; Prevent it from taking too much vertical space */
     min-height: 576px;
+
+
     /* Inside auto layout */
     flex: none;
     order: 0;
@@ -395,7 +398,7 @@ button:hover {
             font-size: 16px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             transition: 0.3s;
-            position: fixed;
+            /* position: fixed; */
             z-index: 999; /* Ensure they appear above other elements */
 
 
