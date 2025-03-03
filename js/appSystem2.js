@@ -13,19 +13,17 @@
           AudioPanel.style.display = (AudioPanel.style.display === "block") ? "none" : "block";
       }
       
-      // Flag to track the music state
       let isMusicPlaying = false;
       
       // Add event listener for button click
       button.addEventListener('click', () => {
           if (isMusicPlaying) {
-              // Pause the music and update button text
               audio.pause();
               button.textContent = "Turn Music Off";
               button.style.backgroundColor = "rgb(246, 25, 25)"; // Change background
                
           } else {
-              // Play the music and update button text
+              // Play
               audio.play();
               button.textContent = "Turn Music On";
               button.style.backgroundColor = "rgb(139, 209, 35)"; // Change background
@@ -61,7 +59,7 @@
 
       
 function updateButtons() {
-    if (isExtraTimeRunning || extraTime === 0) {
+    if (extraTime === 0) {
         moreButton.style.display = 'inline-block';
         stop.style.display = 'none';
         start.disabled = false;
@@ -81,21 +79,7 @@ function updateButtons() {
       };
       
 
-    //   const countdownExtra= () =>{
-    //     if (extraTime > 0 && timeLeft==0) {
-    //             extraTime--;
-    //             updateExtra(); // Update the timer display
-    //             updateButtons();
-    //         } else {
-    //             reset.disabled = false;
-    //             clearInterval(extraCountdown);
-    //             alert("Extra time over!"); // You can modify this action
-    //             // start.disabled = false;
-    //             // stop.disabled = false;
 
-    //             // start.disabled = false; // Re-enable start button after extra time
-    //         }
-    //   };
       const updateExtra = () => {
           
           const min = Math.floor(extraTime / 60);
@@ -152,7 +136,7 @@ function updateButtons() {
                       } else {
                           reset.disabled = false;
                           clearInterval(extraCountdown);
-                          alert("Extra time over!"); // You can modify this action
+                        //   alert("Extra time over!"); // You can modify this action
                         }
                     }, 1000);
                 }
@@ -205,7 +189,6 @@ function updateButtons() {
           clearInterval(fireInterval); // Stop fire particles
           clearInterval(smokeInterval); // Stop smoke particles when the flame is out
           
-          isExtraTimeRunning = false;
             //extraTime = 0;
             updateButtons();
           //extraTime = 0; //secs
@@ -288,7 +271,7 @@ function updateButtons() {
 
           
         moreButton.addEventListener('click', () => {
-
+        moreButton.style.display = 'none';
             if (timeLeft === 0 && extraTime === 0) {
                 extraTime += 8; // Add 8 seconds extra time
                 updateButtons();
@@ -325,6 +308,8 @@ function updateButtons() {
                   stop.style.backgroundColor = "rgb(85, 85, 85)";
           }else{stopTimer();}
           });
+
+          
           reset.addEventListener("click", resetTimer);
       
       
